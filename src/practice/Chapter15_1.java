@@ -9,12 +9,21 @@ public class Chapter15_1 {
 
     // ユークリッドの互除法で最大公約数を計算するメソッド
     static int gcd(int a, int b) {
-    	if (b == 0) {
-    		return a;
+    	//if (b == 0) {
+    		//return a;
+    	//}
+    	//return gcd(b, a % b);
+    	
+    	int r = a % b;
+    	while(0 != r) {
+    		a = b;
+    		b = r;
+    		r = a % b;
     	}
-    	return gcd(b, a % b);
+    	return b;
     }
 }
+// コメントアウトの回答について
 // ポイントはgcdメソッドは必ずint型の戻り値を返す必要があること
 /* 
 return gcd(b, a % b);の記述について、gcd(b, a % b)はint型なの??という疑問が湧くが、
